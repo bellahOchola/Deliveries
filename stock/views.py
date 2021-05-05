@@ -3,6 +3,8 @@ from . models  import *
 from django.db import connection
 from .forms import *
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 def index(request):
@@ -10,6 +12,26 @@ def index(request):
     areas = ClientAreas.objects.count()
     delivery = Deliveries.objects.count()
     return render(request, 'index.html', {'clients':clients, 'areas':areas, 'delivery':delivery})
+
+@csrf_exempt
+def sign_in(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
+            form.save()
+            # user = authenticate(email=email, password=password)
+            # user.set_password(user.password)
+            # login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            
+            return redirect('index')
+    else:
+        form = LoginForm()
+
+    return render(request, 'login.html')
+
 
 def reports(request):
     cursor=connection.cursor()

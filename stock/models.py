@@ -115,7 +115,7 @@ class Clients(models.Model):
     allocated_bags = models.IntegerField(blank=True, null=True)
     bag_type = models.CharField(max_length=10, blank=True, null=True)
     extra_bags = models.IntegerField(blank=True, null=True)
-    status = models.IntegerField()
+    status = models.IntegerField(null=False)
     created_by = models.CharField(max_length=255, blank=True, null=True)
     updated_by = models.CharField(max_length=255, blank=True, null=True)
     date_created = models.DateTimeField(blank=True, null=True)
@@ -217,7 +217,7 @@ class Roles(models.Model):
 
 
 class Users(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, null=False)
     name = models.TextField()
     role = models.ForeignKey(Roles, models.DO_NOTHING, blank=True, null=True)
     mobile = models.CharField(max_length=50)
