@@ -1,0 +1,262 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!-- Dark Logo icon -->
+                            <img src="{% static 'plugins/images/logo-icon.png' %}" alt="homepage" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                            <!-- dark Logo text -->
+                            <img src="{% static 'plugins/images/logo-text.png' %}" alt="homepage" />
+                        </span>
+                    </a>
+                    
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                   
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class=" in">
+                            <!-- <form role="search" class="app-search d-none d-md-block me-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form> -->
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li>
+                            <a style="text-decoration:none" class="profile-pic" href="#">
+                                <img src="{% static 'plugins/images/users/varun.jpg' %}" alt="user-img" width="36"
+                                    class="img-circle"><span class="text-white font-medium">ADMIN</span></a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a style="text-decoration:none" class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'index' %}"
+                                aria-expanded="false">
+                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a style="text-decoration:none" class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'reports' %}"
+                                aria-expanded="false">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Reports</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                                <a style="text-decoration:none" class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'clients' %}"
+                                    aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Customers</span>
+                                </a>
+                            </li>
+                        <!-- <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Icon</span>
+                            </a>
+                        </li> -->
+                        <li class="sidebar-item">
+                            <a style="text-decoration:none" class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
+                                aria-expanded="false">
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span class="hide-menu">Google Map</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a style="text-decoration:none" class="sidebar-link waves-effect waves-dark sidebar-link" href="https://app.powerbi.com/groups/2f20966c-e8ea-4b47-94e4-3d0cf838fa15/reports/ab904a64-43e4-47ce-b0f6-41a882eb9a25/ReportSection"
+                                aria-expanded="false">
+                                <i class="fa fa-columns" aria-hidden="true"></i>
+                                <span class="hide-menu">POWER BI</span>
+                            </a>
+                        </li>
+                        <!-- <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
+                                aria-expanded="false">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <span class="hide-menu">Error 404</span>
+                            </a>
+                        </li> -->
+                        
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-md-1"></div> -->
+                    <div class="col-md-12 col-lg-12 col-sm-12" style='margin-top: 2%; margin-left:1%'>
+                            
+                            <!-- Button trigger modal -->
+                            <button style='margin-bottom:2%; border: none; font-size:12px; ' type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-info"><span class="fa fa-plus "></span> Add Client</button>
+                            <!-- Button trigger modal -->
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Add a new client</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <form method='POST' enctype="multi-part" novalidate>
+                                                    {% csrf_token %}
+                                                    <!-- {{ form|crispy}} -->
+                                                    <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Name:</label>
+                                                            <div class="col-sm-10">
+                                                              {{form.client_name}}
+                                                            </div>
+                                                          </div>
+                                                    <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Status:</label>
+                                                            <div class="col-sm-10">
+                                                                {{form.status}}
+                                                            </div>
+                                                          </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Area:</label>
+                                                            <div class="col-sm-5" name =''>
+                                                              <select name="client_area" style='width: 260px !important; height:35px;'>
+                                                                {%for areas in area%}
+                                                                <option value="{{areas.id}}" >{{areas.area_name}}</option>
+                                                                {%endfor%}
+                                                              </select>
+                                                            </div>
+                                                            <div class="col-sm-5" name =''></div>
+                                                          </div>
+                                                    <button style='margin-left:50%; margin-top:3%;' type="submit" class="btn btn-outline-info">Submit</button>
+                                                    <button style='margin-top:3%;' type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+                                            </form>
+
+                                            
+                                                    
+                                    </div>
+                                    
+                                   
+                                    </div>
+                                    </div>
+                                </div>
+                            <!-- Modal -->
+                            <div class="white-box">
+                                    <h5 style="margin-top:1%;font-weight:bold; margin-bottom: 3% "> All Clients</h5>
+                                    <hr>
+                                    <div class="table-responsive">
+                                    <table id='table_id' class="table no-wrap" style="margin-top:4%">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">Client name</th>
+                                                <th scope="col">Area</th>
+                                                <th scope="col">Status</th>
+                                                
+                                              </tr>
+                                            </thead>
+                                            {% for client in clients %}
+                                            <tr>
+                                                <td>{{client.0}}</td>
+                                                
+                                                <td>{{client.2}}</td>
+                                                <td><button style='' type="submit" class="btn btn-sm btn-round btn-info">Active</button></td>
+                                                
+                                              </tr>
+                                            
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-1"></div> -->
+                        </div>
+                    </div>
+            </div>
+
+</div>
+
+
+
+
+<style>
+
+    th{
+        font-weight:bold !important;
+        font-size: 15px !important;
+        color:black !important;
+    }
+
+    td{
+        font-size: 15px !important;
+        color:black !important;
+        border-bottom: 1px solid whitesmoke !important;
+    }
+
+    hr{
+        color: green !important;
+        height: 2px !important;
+        margin-top:-2% !important;
+        margin-bottom: 3%;
+    }
+</style>
+{% endblock %}
